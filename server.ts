@@ -9,14 +9,18 @@ app.use(cors());
 
 const api = axios.create({
   baseURL: 'http://localhost:6542/',
-  timeout: 1000,
+  timeout: 10000,
   headers: { 'Authorization': 'anael' }
 });
 
 app.get('/symbols/:symbol', async (req, res) => {
-  // console.log( req.params.symbol.toUpperCase());
-  const { data } = await api.get(`symbols/${req.params.symbol.toUpperCase()}`);
-  return res.send(data);
+  
+  try {
+    const { data } = await api.get(`symbols/${req.params.symbol.toUpperCase()}`);
+    return res.send(data);
+  } catch (error) {
+    
+  }
 });
 
 server.listen(3000, () => {
