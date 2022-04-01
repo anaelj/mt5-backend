@@ -9,7 +9,7 @@ app.use(cors());
 
 const api = axios.create({
   baseURL: 'http://localhost:6542/',
-  timeout: 10000,
+  timeout: 1000,
   headers: { 'Authorization': 'anael' }
 });
 
